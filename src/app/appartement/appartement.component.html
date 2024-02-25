@@ -1,0 +1,23 @@
+<p>appartement works!</p>
+
+<table class="table table-striped" border="1">
+    <thead class="thead-dark">
+    <tr >
+        <th >id</th>
+        <th >appartNum</th>
+        <th >FloorNum</th>
+        <th >Terrace</th>
+    </tr>
+</thead>
+    <tr *ngFor="let a of listApp">
+        <td>{{a.id}}</td>
+        <td>{{a.appartNum}}</td>
+        <td>{{a.floorNum}}</td>
+        <td>{{a.terrace}}</td>
+    </tr>
+</table>
+
+<ng-container *ngIf="listApp.length==0">
+    No Appartements
+</ng-container>
+

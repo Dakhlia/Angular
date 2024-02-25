@@ -1,0 +1,42 @@
+
+<p>FormControl</p>
+<label>login  :</label>
+<input type="text" [formControl]="login" placeholder="login"/>
+<br>
+<br>
+<label>Pass  :</label>
+<input type="password" placeholder="pass " [formControl]="pass"/>
+<br>
+<br>
+<input type="button" value="save" (click)="save()" [disabled]="login.invalid" />
+<br>
+<br>
+<p>FormGroupe</p>
+<br>
+<br>
+<form [formGroup]="registerForm" >
+
+    <div class="form-group">
+    <label>login  :</label>
+<input type="text" formControlName="login1" placeholder="login"/>
+</div>
+
+    <div class="alert alert-danger" *ngIf="this.registerForm.controls['login1'].invalid && this.registerForm.controls['login1'].touched">
+<div  class="form-text text-muted" *ngIf="this.registerForm.get('login1')?.hasError('required')" >Login required</div>
+<div  class="form-text text-muted" *ngIf="this.registerForm.get('login1')?.hasError('minlength')" >Min length 6</div>
+</div>
+<br>
+<br>
+<div class="form-group">
+<label>Pass  :</label>
+<input type="password" placeholder="pass " formControlName="pass1"/>
+</div>
+<div class="alert alert-danger" *ngIf="this.registerForm.controls['pass1'].invalid && this.registerForm.controls['pass1'].touched">
+    <div  class="form-text text-muted" *ngIf="this.registerForm.get('pass1')?.hasError('required')" >pass required</div>
+    <div  class="form-text text-muted" *ngIf="this.registerForm.get('pass1')?.hasError('pattern')" >Pattern</div>
+    </div>
+<br>
+<br>
+<input type="button" class="btn btn-primary" value="save" (click)="save()" [disabled]="registerForm.invalid" />
+
+</form>

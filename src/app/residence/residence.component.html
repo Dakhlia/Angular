@@ -1,0 +1,11 @@
+<p>residence works!</p>
+
+
+<ul class="list-group list-group-flush">
+
+    <li class="list-group-item" *ngFor="let r of listResidences">
+        {{r.id}} {{r.name}}{{r.address}}
+        <button class="btn btn-success" [routerLink]="['/App',r.id]">Show App</button>
+
+</ul>
+
